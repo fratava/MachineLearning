@@ -5,7 +5,7 @@
 
 
 #En esta función buscamos el mínimo valor de Θ0 y Θ1 para así minizar la funcion
-function buscarminimo(theta0,theta1,m,tol)
+function buscarminimo(theta0,theta1,m)
     minimo=true
     while(minimo==true)
         temp0=theta0-(alpha/m)*suma(theta0,theta1,m)
