@@ -3,11 +3,14 @@
 #UMSNH
 #Linear Regreassion using Gradient Descent
 
+#Usamos esta librería para graficar
+Pkg.add("PyPlot") #Importamos esta librería para graficar, y sólo la ejecutamos una vez
+using PyPlot
 
 #En esta función buscamos el mínimo valor de Θ0 y Θ1 para así minizar la funcion
 function buscarminimo(theta0,theta1,m)
-    minimo=true
-    while(minimo==true)
+    minimo=false
+    while(minimo==false)
         temp0=theta0-(alpha/m)*suma(theta0,theta1,m)
         temp1=theta1-(alpha/m)*suma1(theta0,theta1,m)
         
@@ -56,3 +59,7 @@ theta0,theta1=buscarminimo(theta0,theta1,m)
 #Imprimimos los resultados
 println("Θ0=",theta0)
 println("Θ1=",theta1)
+x=linspace(X[1,1],max,1000)
+y=map(x-> x*theta1+theta0,x)
+plot(X[:,1],X[:,2],"+",x,y,"g-")
+show()
